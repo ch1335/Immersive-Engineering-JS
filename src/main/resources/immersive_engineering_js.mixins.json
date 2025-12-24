@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "com.chen1335.immersiveEngineeringJs.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["CoresampleItemMixin", "TemplateMultiblockMixin"],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}
