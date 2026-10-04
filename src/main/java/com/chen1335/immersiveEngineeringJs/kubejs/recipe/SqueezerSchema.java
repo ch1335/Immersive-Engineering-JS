@@ -20,5 +20,5 @@ public interface SqueezerSchema {
             ENERGY,
             FLUID,
             RESULT
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

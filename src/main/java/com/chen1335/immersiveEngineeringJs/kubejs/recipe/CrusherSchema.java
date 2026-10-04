@@ -27,5 +27,5 @@ public interface CrusherSchema {
             INPUT,
             ENERGY,
             SECONDARIES
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

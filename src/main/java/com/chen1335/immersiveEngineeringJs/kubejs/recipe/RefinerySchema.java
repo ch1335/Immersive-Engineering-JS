@@ -27,5 +27,5 @@ public interface RefinerySchema {
             INPUT0,
             CATALYST,
             INPUT1
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

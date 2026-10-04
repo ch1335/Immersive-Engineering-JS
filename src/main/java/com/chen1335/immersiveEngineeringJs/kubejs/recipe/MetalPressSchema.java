@@ -21,5 +21,5 @@ public interface MetalPressSchema {
             INPUT,
             MOLD,
             ENERGY
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

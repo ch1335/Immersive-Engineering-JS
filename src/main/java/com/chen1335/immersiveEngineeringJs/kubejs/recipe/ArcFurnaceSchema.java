@@ -35,5 +35,5 @@ public interface ArcFurnaceSchema {
             ADDITIVES,
             SECONDARIES,
             SLAG
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

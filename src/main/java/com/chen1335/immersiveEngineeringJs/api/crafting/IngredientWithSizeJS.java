@@ -14,11 +14,16 @@ public interface IngredientWithSizeJS {
         return IngredientWithSize.of(new ItemStack(item, count));
     }
 
-    static IngredientWithSize ofTag(TagKey<Item> tagKey) {
-        return new IngredientWithSize(tagKey);
+    static IngredientWithSize ofItem(Item item) {
+        return IngredientWithSize.of(new ItemStack(item, 1));
     }
+
 
     static IngredientWithSize ofTag(TagKey<Item> tagKey, int count) {
         return new IngredientWithSize(tagKey, count);
+    }
+
+    static IngredientWithSize ofTag(TagKey<Item> tagKey) {
+        return new IngredientWithSize(tagKey);
     }
 }

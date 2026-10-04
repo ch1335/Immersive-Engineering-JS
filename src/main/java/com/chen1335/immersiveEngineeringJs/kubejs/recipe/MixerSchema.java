@@ -25,5 +25,5 @@ public interface MixerSchema {
             FLUID,
             INPUTS,
             ENERGY
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

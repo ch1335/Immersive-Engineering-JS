@@ -10,6 +10,14 @@ public interface TagOutputJS {
         return new TagOutput(itemStack);
     }
 
+    static TagOutput ofItem(Item item) {
+        return new TagOutput(item);
+    }
+
+    static TagOutput ofItem(Item item, int count) {
+        return new TagOutput(item, count);
+    }
+
     static TagOutput ofTag(TagKey<Item> tagKey) {
         return new TagOutput(tagKey);
     }

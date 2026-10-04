@@ -11,6 +11,7 @@ import com.chen1335.immersiveEngineeringJs.kubejs.recipeBuilders.GeneratorFuelHe
 import com.chen1335.immersiveEngineeringJs.kubejs.recipeBuilders.MineralMixBuilder;
 import dev.latvian.mods.kubejs.event.EventGroupRegistry;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
+import dev.latvian.mods.kubejs.recipe.schema.RecipeFactoryRegistry;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
 import dev.latvian.mods.kubejs.script.BindingRegistry;
 
@@ -37,6 +38,13 @@ public class ImmersiveEngineeringJsPlugin implements KubeJSPlugin {
         registry.register(IEApi.ieLoc("mixer"), MixerSchema.SCHEMA);
         registry.register(IEApi.ieLoc("mineral_mix"), MineralMixSchema.SCHEMA);
         registry.register(IEApi.ieLoc("generator_fuel"), GeneratorFuelSchema.SCHEMA);
+    }
+
+    @Override
+    public void registerRecipeFactories(RecipeFactoryRegistry registry) {
+        // used by the multiblock recipes that take an energy value, to reject values that would make
+        // Immersive Engineering divide by zero and crash the world (see IEEnergyRecipe)
+        registry.register(IEEnergyRecipe.RECIPE_FACTORY);
     }
 
     @Override

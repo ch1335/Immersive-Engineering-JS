@@ -28,5 +28,5 @@ public interface SawmillSchema {
             STRIPPED,
             STRIPPING_SECONDARIES,
             SECONDARY_OUTPUTS
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }

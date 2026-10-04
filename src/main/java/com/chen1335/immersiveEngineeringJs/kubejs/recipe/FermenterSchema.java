@@ -20,5 +20,5 @@ public interface FermenterSchema {
             ENERGY,
             FLUID,
             RESULT
-    );
+    ).factory(IEEnergyRecipe.RECIPE_FACTORY);
 }
