@@ -31,4 +31,17 @@ public interface IngredientWithSizeJS
 	{
 		return new IngredientWithSize(tagKey);
 	}
+
+	/**
+	 * String overload, so scripts can write {@code IngredientWithSizeJS.ofTag('#forge:ingots/iron', 2)}.
+	 */
+	static IngredientWithSize ofTag(String tag, int count)
+	{
+		return new IngredientWithSize(CraftingTags.item(tag), count);
+	}
+
+	static IngredientWithSize ofTag(String tag)
+	{
+		return new IngredientWithSize(CraftingTags.item(tag));
+	}
 }

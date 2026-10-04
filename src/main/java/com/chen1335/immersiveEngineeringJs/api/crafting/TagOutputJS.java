@@ -30,4 +30,17 @@ public interface TagOutputJS
 	{
 		return TagOutput.of(tagKey, count);
 	}
+
+	/**
+	 * String overload, so scripts can write {@code TagOutputJS.ofTag('#forge:ingots/iron')}.
+	 */
+	static TagOutput ofTag(String tag)
+	{
+		return TagOutput.of(CraftingTags.item(tag));
+	}
+
+	static TagOutput ofTag(String tag, int count)
+	{
+		return TagOutput.of(CraftingTags.item(tag), count);
+	}
 }

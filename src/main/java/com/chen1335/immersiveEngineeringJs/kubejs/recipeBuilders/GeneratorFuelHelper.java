@@ -1,8 +1,8 @@
 package com.chen1335.immersiveEngineeringJs.kubejs.recipeBuilders;
 
 import blusunrize.immersiveengineering.api.IEApi;
+import com.chen1335.immersiveEngineeringJs.api.crafting.CraftingTags;
 import dev.latvian.mods.kubejs.recipe.RecipesEventJS;
-import dev.latvian.mods.rhino.Context;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 
@@ -22,7 +22,11 @@ public class GeneratorFuelHelper
 		this.recipesEvent = recipesEvent;
 	}
 
-	public static GeneratorFuelHelper create(Context cx, RecipesEventJS recipesEvent)
+	/**
+	 * Called as {@code GeneratorFuelHelper.create(event)} from scripts. See
+	 * {@link MineralMixBuilder#build} for why there is no Rhino {@code Context} parameter on 1.20.1.
+	 */
+	public static GeneratorFuelHelper create(RecipesEventJS recipesEvent)
 	{
 		return new GeneratorFuelHelper(recipesEvent);
 	}
@@ -32,5 +36,15 @@ public class GeneratorFuelHelper
 		recipesEvent.getRecipeFunction(IEApi.ieLoc("generator_fuel").toString())
 				.createRecipe(new Object[]{burnTime, tagKey});
 		return this;
+	}
+
+	/**
+	 * String overload so scripts can write {@code addTag('forge:ethanol', 1200)}. KubeJS 2001 has no
+	 * type wrapper for {@code TagKey}, so a plain string cannot be converted to the {@link TagKey}
+	 * overload above.
+	 */
+	public GeneratorFuelHelper addTag(String tag, int burnTime)
+	{
+		return addTag(CraftingTags.fluid(tag), burnTime);
 	}
 }

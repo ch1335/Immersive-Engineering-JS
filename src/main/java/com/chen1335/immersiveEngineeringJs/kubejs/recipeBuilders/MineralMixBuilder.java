@@ -5,7 +5,6 @@ import com.chen1335.immersiveEngineeringJs.api.crafting.ChanceOutput;
 import com.chen1335.immersiveEngineeringJs.api.crafting.TagOutput;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
 import dev.latvian.mods.kubejs.recipe.RecipesEventJS;
-import dev.latvian.mods.rhino.Context;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -132,7 +131,14 @@ public class MineralMixBuilder
 				.spoil(Blocks.GRAVEL, 0.2F);
 	}
 
-	public void build(Context cx, RecipesEventJS recipesEvent, String name)
+	/**
+	 * Registers the mix. Called as {@code build(event, 'name')} from scripts.
+	 * <p>
+	 * Note there is no Rhino {@code Context} parameter: KubeJS 2101 injects one for script calls, but
+	 * KubeJS 2001 does not, so the 1.21.1 signature {@code build(Context, RecipesEventJS, String)} is
+	 * not callable from a 1.20.1 script at all.
+	 */
+	public void build(RecipesEventJS recipesEvent, String name)
 	{
 		RecipeJS recipe = recipesEvent.getRecipeFunction(IEApi.ieLoc("mineral_mix").toString())
 				.createRecipe(new Object[]{
