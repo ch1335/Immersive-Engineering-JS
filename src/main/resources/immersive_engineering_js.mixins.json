@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.chen1335.immersiveEngineeringJs.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "immersive_engineering_js.refmap.json",
+  "mixins": [
+    "CoresampleItemMixin",
+    "TemplateMultiblockMixin"
+  ],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}
